@@ -28,9 +28,9 @@ md5sum fileA fileB
 $ time pwd
 /mnt/test2linux
 
-real	0m0.000s
-user	0m0.000s
-sys	0m0.000s
+real	0m0.000s # 运行耗时，从程序开始到结束的总时间
+user	0m0.000s # 程序运行在用户态（）的时间
+sys	0m0.000s # 程序运行在内核态的时间
 
 
 $ time tar xvJf linux-5.14.14.tar.xz 
@@ -49,11 +49,11 @@ fork(): clone a new instance of current process
 pid_t fork(void);
 ```
 
-exec(): 
+exec():  # 代替shell执行程序
 ```
 #include <unistd.h>
 
-int execl(const char *path, const char *arg, ...);  
+int execl(const char *path, const char *arg, ...);  # 带有参数的命令
 int execlp(const char *file, const char *arg, ...);  
 int execle(const char *path, const char *arg, ..., char *const envp[]);  
 int execv(const char *path, char *const argv[]);  
